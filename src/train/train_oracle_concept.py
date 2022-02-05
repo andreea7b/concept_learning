@@ -112,7 +112,7 @@ if __name__ == "__main__":
 		query_str = "_g{}".format(args.concept_dir.split("_")[1])
 	else:
 		query_str = ""
-	model_str = "/oracle_{}{}_{}_{}.pt".format(params["data"]["type"], query_str, noise, params["data"]["seed"])
+	model_str = "/oracle_{}{}_{}.pt".format(params["data"]["type"], query_str, params["data"]["seed"])
 	save_dir = here + params["data"]["save_dir"] + concept
 	if not os.path.isdir(save_dir):
 		os.mkdir(save_dir)
