@@ -1,5 +1,10 @@
 # concept_learning
 
+**Requirements:**
+1. Ubuntu 18.04 or 20.04.
+2. Install STORM: https://github.com/NVlabs/storm (requires installing Isaac Gym in the STORM environment).
+3. 'pip3 install shapely, open3d-python, h5py==2.10.0, moviepy'
+
 **Downloading Object Assets and Pre-trained Models:**
 
 Download [data.tar.gz](https://drive.google.com/file/d/1h-jcEI-SArBFR4FO4uL09jUYle6zRPjQ) and place it under the `data` folder. Unzip it with the following command:
@@ -92,7 +97,7 @@ Note: The above functionalities are replicated for ngc job scheduling in the `/s
 
 1. Generate active learning data: `python datasets/collect_human_data.py --config '/../../configs/rawstate_AL.yaml' --concept "above45" --simulated --active_samples 1000 --passive_samples 0 --batch_size 100 --objective 'confrand' --warmstart 0 --mining 1000`
 2. Train low-dimensional concept: `python train/train_human_concept.py --concept "above45" --config '/../../configs/rawstate_human.yaml' --train_amt 1000 --strategy 'confrandmine'`
-3. Train baseline: `python train/train_human_concept.py --concept "anove45" --config '/../../configs/pointcloud_human.yaml' --train_amt 1000 --strategy 'randomgt'`
+3. Train baseline: `python train/train_human_concept.py --concept "above45" --config '/../../configs/pointcloud_human.yaml' --train_amt 1000 --strategy 'randomgt'`
 4. Label using the low-dimensional concept: `python datasets/label_concept_data.py --concept "above45" --concept_model 'confrandgt_rawstate_1000_0.pt'`
 5. Train ours: `python train/train_oracle_concept.py --concept_dir above45_confrandgtmine500 --config '/../../configs/pointcloud_oracle.yaml'`
 6. Evaluate model: `python train/evaluate_concept.py --concept_dir "above45" --config '/../../configs/pointcloud_oracle.yaml' --concept_model 'confrandgtmine_pointcloud_g500_0.pt'`
