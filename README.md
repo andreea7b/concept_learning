@@ -3,7 +3,7 @@
 **Requirements:**
 1. Ubuntu 18.04 or 20.04.
 2. Install STORM: https://github.com/NVlabs/storm (requires installing Isaac Gym in the STORM environment).
-3. 'pip3 install shapely, open3d-python, h5py==2.10.0, moviepy'
+3. `pip3 install shapely, open3d-python, h5py==2.10.0, moviepy`
 
 **Downloading Object Assets and Pre-trained Models:**
 
